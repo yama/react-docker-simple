@@ -86,7 +86,7 @@ nohup npm run dev -- --host > /dev/null 2>&1 &
 ### **Dockerfile の説明**
 
 - `node:lts` の最新 LTS 版を使用。
-- `bash` と `git` をインストール。
+- `bash` をインストール。
 - `CMD ["bash"]` により、デフォルトのシェルを `bash` に設定。
 
 ### **compose.yml の説明**

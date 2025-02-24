@@ -1,10 +1,10 @@
-FROM node:lts
+FROM node:lts-slim
 
 # 作業ディレクトリを /app に設定
 WORKDIR /app
 
-# Git をインストールし、シェルを bash に変更
-RUN apt-get update && apt-get install -y git bash \
+# シェルを bash に変更
+RUN apt-get update && apt-get install -y bash \
     && rm -rf /var/lib/apt/lists/* \
     && chsh -s /bin/bash node
 
