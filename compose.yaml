@@ -1,0 +1,12 @@
+services:
+  react-app:
+    container_name: react-app
+    build: .
+    volumes:
+      - ./app:/app
+    ports:
+      - "80:5173"
+    working_dir: /app
+    stdin_open: true
+    tty: true
+    user: "${UID:-1000}:${GID:-1000}"
