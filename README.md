@@ -8,7 +8,7 @@ Vite はコンテナ内で手動インストールする前提となっており
 
 ```
 project-root/
-│── docker-compose.yml
+│── compose.yaml
 │── Dockerfile
 └── app/  # Reactプロジェクトのコードを配置
 ```
@@ -48,7 +48,7 @@ echo "GID=$(id -g)" >> .env
 ### **3. Dockerコンテナのビルド & 起動**
 
 ```sh
-docker-compose up -d --build
+docker compose up -d --build
 ```
 
 ### **4. コンテナに入る**
@@ -87,10 +87,9 @@ nohup npm run dev -- --host > /dev/null 2>&1 &
 
 - `node:lts` の最新 LTS 版を使用。
 - `bash` と `git` をインストール。
-- `5173` 番ポートを開放。
 - `CMD ["bash"]` により、デフォルトのシェルを `bash` に設定。
 
-### **docker-compose.yml の説明**
+### **compose.yml の説明**
 
 - `volumes` により `app/` をコンテナと同期。
 - `user: "${UID:-1000}:${GID:-1000}"` により、ホストユーザーの UID/GID を反映。
@@ -103,24 +102,23 @@ nohup npm run dev -- --host > /dev/null 2>&1 &
 ### **コンテナを停止する**
 
 ```sh
-docker-compose down
+docker compose down
 ```
 
 ### **コンテナとボリュームを完全削除**
 
 ```sh
-docker-compose down -v
+docker compose down -v
 ```
 
 ---
 
 ## 🎯 まとめ
 
-✅ **Docker で React の開発環境を構築**
-✅ **ホストの `app/` を編集しながらコンテナ内で実行**
-✅ **ポート `5173` で開発サーバーを公開**
-✅ **`UID:GID` を指定して権限問題を解決**
-✅ **Vite を手動でインストールし、環境構築を学習できる**
+- **Docker で React の開発環境を構築**
+- **ホストの `app/` を編集しながらコンテナ内で実行**
+- **`UID:GID` を指定して権限問題を解決**
+- **Vite を手動でインストールし、環境構築を学習できる**
 
-この環境を使えば、簡単に React の開発を学習できます！ 🚀
+この環境を使えば、手軽に React の開発を学習できます！ 🚀
 
