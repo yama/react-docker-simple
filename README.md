@@ -19,19 +19,31 @@ project-root/
 
 ### **1. リポジトリのクローン & ディレクトリ作成**
 
+まず、このリポジトリをクローンしてください。
 ```sh
-mkdir react-docker && cd react-docker
+git clone git@github.com:yama/react-docker-simple.git
+cd react-docker-simple.git
 mkdir app  # Reactアプリ用のディレクトリを作成
 ```
 
 ### **2. `.env` ファイルの作成 (オプション)**
 
-ホストの `UID` / `GID` を `.env` に保存することで、適切な権限でファイルを作成できます。
+#### **ホストの `UID` / `GID` を確認する**
+以下のコマンドを実行し、現在のユーザーID (`UID`) とグループID (`GID`) を確認してください。
+```sh
+id -u  # UID を確認
+id -g  # GID を確認
+```
+
+#### **`UID` / `GID` が `1000` でない場合、`.env` を作成**
+もし `UID` または `GID` が `1000` でない場合、以下の手順で `.env` を作成してください。
 
 ```sh
 echo "UID=$(id -u)" > .env
 echo "GID=$(id -g)" >> .env
 ```
+
+この `.env` ファイルにより、コンテナ内のファイル権限がホストユーザーと一致するようになります。
 
 ### **3. Dockerコンテナのビルド & 起動**
 
