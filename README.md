@@ -60,7 +60,7 @@ docker exec -it react-app bash
 ### **5. Vite プロジェクトの作成 (コンテナ内で実行)**
 
 ```sh
-npm create vite@latest . -- --template react-ts
+npm create vite@latest
 ```
 
 ### **6. 依存関係のインストール (コンテナ内で実行)**
